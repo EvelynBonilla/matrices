@@ -1,0 +1,82 @@
+ #include "datos_matriz.h"
+ #include <stdlib.h>
+int i=0;
+int j=0;
+int sum=0;
+int sumc=0;
+int sump=0;
+int aux=0;
+int k=0;
+int m=0;
+int opcion2;
+int sumt[3];
+float prom=0;
+double mult=1;
+float promc=0;
+double a=10000000000000000;
+String opcion;
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin (9600);
+Serial.println("Digite la opción");
+Serial.println("1: Suma de Filas");
+Serial.println("2: Multiplicación de Columnas");
+Serial.println("3: Promedio de columnas");
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+while (Serial.available()>0){
+opcion=Serial.readString();
+
+if(opcion.equals("1")){
+ 
+ for(;i<20;i++){
+  for(j=0;j<3;j++){
+ sum=sum+matriz[i][j];
+ delay(100);
+    }
+ Serial.println(sum);
+ sum=0;
+ }
+ }
+ else{
+if(opcion.equals("2")){
+
+for(;j<3;j++){
+for(i=0;i<20;i++){
+mult=mult*matriz[i][j];
+    }
+ Serial.println(mult/a);
+ mult=1;
+}  
+  }else{
+ if(opcion.equals("3")){
+ 
+ for(;j<3;j++){
+ for(i=0;i<20;i++){
+ sumc=sumc+matriz[i][j];
+ sumt[j]=sumc;
+  }  
+ sump=0; 
+  }
+ for(;k<3;k++){  
+ prom=sumt[k];
+ delay(100); 
+    }
+aux=0;  
+for(;m<1;m++)
+{
+Serial.println(prom/3);
+}   
+  } else{
+    
+ Serial.println("Error");   
+    }   
+     }
+      }
+       }
+  }
+
+
